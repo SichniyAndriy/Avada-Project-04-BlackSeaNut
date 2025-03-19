@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: BlackSeaNut-SichniyA
+  devtools:
+    restart:
+      enabled: true
+      quiet-period: 250ms
+      poll-interval: 350ms
+      additional-exclude: classpath:/img/
+    livereload:
+      enabled: true
+      port: 8090
+  #      additional-exclude:
+  web:
+    resources:
+      static-locations: classpath:/static/, classpath:/resources
+  thymeleaf:
+    prefix: classpath:/templates/
+  datasource:
+    url: jdbc:postgresql://localhost:5432/black_sea_nut_db
+    username: user
+    password: password
+    hikari:
+      driver-class-name: org.postgresql.Driver
+      transaction-isolation: TRANSACTION_REPEATABLE_READ
+      minimum-idle: 5
+      maximum-pool-size: 250
+      allow-pool-suspension: off
+      leak-detection-threshold: 3_000
+      max-lifetime: 120_000
+      idle-timeout: 60_000
+    tomcat:
+      url: "/BlackSeaNut"
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+  data:
+    jdbc:
+      dialect: postgresql
